@@ -1,0 +1,24 @@
+<idea-plugin version="2">
+  <id>com.jacksingleton.tabtonextsplitter</id>
+  <name>Tab to Next Splitter</name>
+  <version>0.1</version>
+  <vendor email="tabtonextsplitter@jacksingleton.com">Jack Singleton</vendor>
+
+  <description><![CDATA[
+      Move the current editor tab to the next splitter window
+      ]]>
+  </description>
+
+  <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="107.105"/>
+
+  <actions>
+    <!-- Add your actions here -->
+      <action id="com.jacksingleton.tabtonextsplitter" class="com.jacksingleton.tabtonextsplitter.TabToNextSplitter" text="Tab to Next Splitter"
+              description="Move the current editor tab to the next splitter window">
+          <add-to-group group-id="EditorActions" anchor="first"/>
+          <keyboard-shortcut keymap="$default" first-keystroke="shift alt TAB"/>
+      </action>
+  </actions>
+
+</idea-plugin>
