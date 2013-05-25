@@ -4,16 +4,25 @@
   <version>0.1</version>
   <vendor email="tabtonextsplitter@jacksingleton.com">Jack Singleton</vendor>
 
-  <description><![CDATA[
-      Move the current editor tab to the next splitter window
+  <description>
+      <![CDATA[
+        IntelliJ plugin to move the current editor tab to the next splitter window (with the keyboard)
+
+        This seems to currently only be possible by dragging a tab from one splitter pane to another
+        using the mouse, making split pane mode very inconvenient.
+
+        Default key binding is 'shift alt tab'
+
+        https://github.com/jacksingleton/tab-to-next-splitter
       ]]>
   </description>
 
   <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
   <idea-version since-build="107.105"/>
 
+  <depends>com.intellij.modules.platform</depends>
+
   <actions>
-    <!-- Add your actions here -->
       <action id="com.jacksingleton.tabtonextsplitter" class="com.jacksingleton.tabtonextsplitter.TabToNextSplitter" text="Tab to Next Splitter"
               description="Move the current editor tab to the next splitter window">
           <add-to-group group-id="EditorActions" anchor="first"/>
