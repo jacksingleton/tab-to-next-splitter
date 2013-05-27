@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>com.jacksingleton.tabtonextsplitter</id>
   <name>Tab to Next Splitter</name>
-  <version>0.1</version>
+  <version>0.2</version>
   <vendor email="tabtonextsplitter@jacksingleton.com">Jack Singleton</vendor>
 
   <description>
