@@ -28,7 +28,8 @@ public class TabToNextSplitter extends AnAction {
         final EditorWithProviderComposite activeEditorTab = activeWindowPane.getSelectedEditor();
         final VirtualFile activeFile = activeEditorTab.getFile();
 
-        activeWindowPane.closeFile(activeFile);
         nextWindowPane.getManager().openFileImpl2(nextWindowPane, activeFile, true);
+
+        activeWindowPane.closeFile(activeFile);
     }
 }
