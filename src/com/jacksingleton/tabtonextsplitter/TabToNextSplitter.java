@@ -30,6 +30,6 @@ public class TabToNextSplitter extends AnAction {
 
         nextWindowPane.getManager().openFileImpl2(nextWindowPane, activeFile, true);
 
-        activeWindowPane.closeFile(activeFile);
+        activeWindowPane.closeFile(activeFile, true, false);
     }
 }
