@@ -1,11 +1,11 @@
 <idea-plugin version="2">
-  <id>com.jacksingleton.tabtonextsplitter</id>
-  <name>Tab to Next Splitter</name>
-  <version>0.3</version>
-  <vendor email="tabtonextsplitter@jacksingleton.com">Jack Singleton</vendor>
+    <id>com.jacksingleton.tabtonextsplitter</id>
+    <name>Tab to Next Splitter</name>
+    <version>0.3</version>
+    <vendor email="tabtonextsplitter@jacksingleton.com">Jack Singleton</vendor>
 
-  <description>
-      <![CDATA[
+    <description>
+        <![CDATA[
         IntelliJ plugin to move the current editor tab to the next splitter window (with the keyboard)
         <br/>
         This seems to currently only be possible by dragging a tab from one splitter pane to another
@@ -15,19 +15,28 @@
         <br/>
         https://github.com/jacksingleton/tab-to-next-splitter
       ]]>
-  </description>
+    </description>
 
-  <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
-  <idea-version since-build="107.105"/>
+    <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
+    <idea-version since-build="107.105"/>
 
-  <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.platform</depends>
 
-  <actions>
-      <action id="com.jacksingleton.tabtonextsplitter" class="com.jacksingleton.tabtonextsplitter.TabToNextSplitter" text="Tab to Next Splitter"
-              description="Move the current editor tab to the next splitter window">
-          <add-to-group group-id="EditorActions" anchor="first"/>
-          <keyboard-shortcut keymap="$default" first-keystroke="shift alt TAB"/>
-      </action>
-  </actions>
+    <actions>
+        <action id="com.jacksingleton.tabtonextsplitter" class="com.jacksingleton.tabtonextsplitter.TabToNextSplitter"
+                text="Tab to Next Splitter"
+                description="Move the current editor tab to the next splitter window">
+            <add-to-group group-id="EditorActions" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="shift alt TAB"/>
+        </action>
+    </actions>
+
+    <project-components>
+        <component>
+            <implementation-class>com.jacksingleton.tabtonextsplitter.TabToNextSplitterApplicationComponent
+            </implementation-class>
+        </component>
+    </project-components>
+
 
 </idea-plugin>

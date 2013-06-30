@@ -8,6 +8,7 @@ import com.intellij.openapi.fileEditor.impl.EditorWindow;
 import com.intellij.openapi.fileEditor.impl.EditorWithProviderComposite;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.ui.tabs.TabInfo;
 
 /**
  * Move the current editor tab to the next splitter window
@@ -18,6 +19,23 @@ public class TabToNextSplitter extends AnAction {
         final Project project = PlatformDataKeys.PROJECT.getData(event.getDataContext());
         final FileEditorManagerEx fileEditorManager = FileEditorManagerEx.getInstanceEx(project);
         final EditorWindow activeWindowPane = EditorWindow.DATA_KEY.getData(event.getDataContext());
+
+        if (activeWindowPane == null) return; // Action invoked when no files are open; do nothing
+
+        final EditorWindow nextWindowPane = fileEditorManager.getNextWindow(activeWindowPane);
+
+        if (nextWindowPane == activeWindowPane) return; // Action invoked with one pane open; do nothing
+
+        final EditorWithProviderComposite activeEditorTab = activeWindowPane.getSelectedEditor();
+        final VirtualFile activeFile = activeEditorTab.getFile();
+
+        nextWindowPane.getManager().openFileImpl2(nextWindowPane, activeFile, true);
+
+        activeWindowPane.closeFile(activeFile, true, false);
+    }
+
+    public static void tabToNextSplitter(Project project, EditorWindow activeWindowPane) {
+        final FileEditorManagerEx fileEditorManager = FileEditorManagerEx.getInstanceEx(project);
 
         if (activeWindowPane == null) return; // Action invoked when no files are open; do nothing
 
